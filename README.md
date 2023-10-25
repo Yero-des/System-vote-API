@@ -1,4 +1,4 @@
-#SYSTEM OF VOTES
+# SYSTEM OF VOTES
 ## Install myvenv
 ```
 python -m venv myvenv
