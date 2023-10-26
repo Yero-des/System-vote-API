@@ -6,7 +6,8 @@ class Lista(models.Model):
   nombre = models.CharField(max_length=250, unique=True)
   descripcion = models.CharField(max_length=250)
   alcalde = models.CharField(max_length=250)
-  imagen = models.ImageField(upload_to='', null=True)
+  imagen = models.ImageField(upload_to='img', null=True)
+  simbolo = models.ImageField(upload_to='symbol', null=True)
   votos = models.IntegerField(default=0)
 
   def __str__(self):
