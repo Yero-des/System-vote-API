@@ -8,7 +8,7 @@ class ListaViewSet(viewsets.ModelViewSet):
   queryset = Lista.objects.all()
   serializer_class = ListaSerializer
 
-def votacion (request):
+def votacion(request):
   context = {
     "cantidatos": Lista.objects.all(),
   }

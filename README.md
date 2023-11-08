@@ -9,3 +9,12 @@ myvenv\Scripts\activate
 pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
+
+## Extras
+```
+"emmet.includeLanguages": {   
+  "django-html": "html",
+  "ejs": "html",
+  "javascript": "javascriptreact",
+}
+```
