@@ -6,5 +6,6 @@ router = DefaultRouter()
 router.register(r'listas', ListaViewSet)
 
 urlpatterns = [
-  path('', include(router.urls)),
+  path('', votacion, name="votacion"),
+  path('api/', include(router.urls)),
 ]
