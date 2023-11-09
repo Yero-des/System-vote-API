@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container confirmacion-voto">
+  <div class="row mt-4">
+    <div class="col-auto">
+      <h1 class="">
+        Voto realizado
+      </h1>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-auto">
+      <a href="{% url 'votacion' %}" class="btn btn-secondary">
+        Regresar a votacion
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock content %}

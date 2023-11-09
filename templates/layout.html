@@ -7,14 +7,15 @@
   <link rel="stylesheet" href="{% static 'css/app.css'%}">
   <link rel="stylesheet" href="{% static 'css/cantidatos.css'%}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="icon" type="image" href="{% static 'img/insignia.png' %}" />
   <title>Votaciones</title>
 </head>
 <body>
-  <nav id="nav-bar" class="navbar navbar-expand-lg bg-dark">
+  <nav id="nav-bar" class="navbar navbar-expand-lg bg-dark border-bottom border-2 border-light">
     <div class="container-fluid">
       <a class="navbar-brand text-uppercase text-light" href="#">
-        <div class="row align-items-center">
+        <div class="row justify-content-center align-items-center">
           <div class="col-auto">
             <img src="{% static 'img/insignia.png'%}" alt="Municipio escolar" width="30" height="50"/>                   
           </div>
@@ -24,12 +25,37 @@
         </div>
         </a>
     </div>
-  </nav>  
-  <div class="font text-center">
-    <div class="gray-content-font"></div>
-    <div class="content-font">     
-      {% block content %}{% endblock %}
-    </div>
+  </nav> 
+  <div class="container-fluid text-center pt-4"> 
+    <svg
+      class="mark-outsider"
+      viewBox="1 1 1354 447"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1366.47 0H0.474182V427.388C0.474182 427.388 365.95 517.039 675.682 309.817C985.414 102.594 1366.47 427.388 1366.47 427.388V0Z"
+        fill="url(#paint0_linear_5_24)"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_5_24"
+          x1="802.861"
+          y1="213.694"
+          x2="402.935"
+          y2="213.694"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#2A5298"></stop>
+          <stop offset="1" stop-color="#1E3C72"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    {% block content %}{% endblock %}
+
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,5 +1,87 @@
-<!DOCTYPE html>
 {% extends "layout.html" %}
 {% block content %}
+
+<div id="auto-grid" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 justify-content-center cantidatos">
+  {% for cantidato in lista %}
+
+  <div href="#" class="col-12 col-md-12 cantidato">
+
+    <div class="group container px-0 bg-dark rounded-3 ">
+
+      <div class="row group-img" title="{{cantidato.descripcion}}">
+        <img src="{{cantidato.imagen.url}}" alt="{{cantidato.nombre}}" />
+      </div>
+
+      <div class="row justify-content-center align-items-center mt-3 p-2">
+        <div class="col-auto fixed-simbol">
+          <img
+          src={{cantidato.simbolo.url}}
+          alt={{cantidato.nombre}}/>
+        </div>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <h3 class="text-light text-center mb-0 cantidato-text-nowrap">{{cantidato.nombre}}</h3>
+        </div>        
+      </div>
+      <div class="row justify-content-center mb-3">
+        <div class="col-10">
+          <h4 class="fs-5 text-secondary text-center mb-0 cantidato-text-nowrap">{{cantidato.alcalde}}</h4>
+        </div>  
+      </div>
+
+    </div>
+
+    <div class="container mt-3">
+      <div class="row">
+        <button type="button" class="col btn btn-success btn-vote"  data-bs-toggle="modal" data-bs-target="#exampleModal{{cantidato.id}}">
+          <i class="bi bi-check2-circle text-light"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  {% endfor %}
+</div>
+
+{% for cantidato in lista %}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{cantidato.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar voto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body px-0 pt-0">
+        <div class="row mb-3 justify-content-center">
+          <div class="col-12">      
+            <div class="img-confirmation">
+              <img src="{{cantidato.imagen.url}}" alt="{{cantidato.nombre}}" />
+            </div>        
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-10">              
+            <p>¿Seguro que desea votar por <span class="text-dark fw-bold">{{cantidato.nombre}}</span> ?</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <form action="aumentar_votos/{{cantidato.id}}/" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-success">Confirmar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
 
 {% endblock content %}
